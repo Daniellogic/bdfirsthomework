@@ -29,7 +29,7 @@ def sumarext(request):
         number_b =  Decimal(request.GET['number_b'])
         response = services.externalSumar(number_a,number_b).json()
     except:
-        return HttpResponse("Exception")
+        return HttpResponse("Exception, is the worker down?")
     return render(request,'answer.html',{'answer':response['result']})
     
 def restar(request):
@@ -51,7 +51,7 @@ def restarext(request):
         number_b = Decimal(request.POST['number_b'])
         response = services.externalRestar(number_a,number_b).json()
     except:
-        return HttpResponse("Exception")
+        return HttpResponse("Exception, is the worker down?")
     return render(request,'answer.html',{'answer':response['result']})
         
 
@@ -71,5 +71,5 @@ def potenciaext(request):
         number_b = Decimal(request.GET['number_b'])
         response = services.externalPotencia(number_a,number_b).json()
     except:
-        return HttpResponse("Exception")
+        return HttpResponse("Exception, is the worker down?")
     return render(request,'answer.html',{'answer':response['result']})
