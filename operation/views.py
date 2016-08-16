@@ -2,9 +2,12 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
 from decimal import Decimal
+from django.http import JsonResponse
 
 # Create your views here.
 # Create your views here.
+
+import services
 
 def home(request):  
     #return render_to_response("sumar.html", RequestContext(request))
@@ -17,7 +20,17 @@ def sumar(request):
         response = number_a + number_b
     except:
         return HttpResponse("Exception")
-    return HttpResponse(response)
+    data = {'result':response}
+    return JsonResponse(data)
+    
+def sumarext(request):
+    try:
+        number_a = Decimal(request.GET['number_a'])
+        number_b =  Decimal(request.GET['number_b'])
+        response = services.externalSumar(number_a,number_b).json()
+    except:
+        return HttpResponse("Exception")
+    return render(request,'answer.html',{'answer':response['result']})
     
 def restar(request):
     try:

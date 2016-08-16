@@ -21,8 +21,8 @@ from operation import views
 urlpatterns = [
     url(r'^$', views.home, name = 'home'),
     url(r'^sumar/$', views.sumar, name = 'sumar'),
+    url(r'^sumarext/$', views.sumarext, name = 'sumarext'),
     url(r'^restar/$', views.restar, name = 'restar'),
     url(r'^potencia/$', views.potencia, name = 'potencia'),
     url(r'^admin/', admin.site.urls),
-    
 ]
