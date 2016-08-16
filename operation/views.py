@@ -34,16 +34,27 @@ def sumarext(request):
     
 def restar(request):
     try:
-        number_a = Decimal(request.POST['number_a'])
-        number_b=  Decimal(request.POST['number_b'])
+        number_a = Decimal(request.GET['number_a'])
+        number_b=  Decimal(request.GET['number_b'])
         response = number_a - number_b
     except:
         print("exception")
         return HttpResponse("Exception")
         #return render(request,'answer.html',{'answer':response})
     #return render(request,'answer.html',{'answer':response})
-    return HttpResponse(response)
+    data = {'result':response}
+    return JsonResponse(data)
     
+def restarext(request):
+    try:
+        number_a = Decimal(request.POST['number_a'])
+        number_b = Decimal(request.POST['number_b'])
+        response = services.externalRestar(number_a,number_b).json()
+    except:
+        return HttpResponse("Exception")
+    return render(request,'answer.html',{'answer':response['result']})
+        
+
 def potencia(request):
     try:
         number_a = Decimal(request.GET['number_a'])
@@ -51,4 +62,14 @@ def potencia(request):
         response = number_a ** number_b
     except:
         return HttpResponse("Exception")
-    return HttpResponse(response)
+    data = {'result':response}
+    return JsonResponse(data)
+    
+def potenciaext(request):
+    try:
+        number_a = Decimal(request.GET['number_a'])
+        number_b = Decimal(request.GET['number_b'])
+        response = services.externalPotencia(number_a,number_b).json()
+    except:
+        return HttpResponse("Exception")
+    return render(request,'answer.html',{'answer':response['result']})

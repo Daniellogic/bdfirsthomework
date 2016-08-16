@@ -27,5 +27,16 @@
       <input type='number' name="number_b">
       <input type='submit' value='sumarext' class='btn btn-success btn-block'>
     </form>
+    <form method='POST' action='restarext/'> 
+      {% csrf_token %}
+      <input type='number' name="number_a">
+      <input type='number' name="number_b">
+      <input type='submit' value='restarext' class='btn btn-success btn-block'>
+    </form>
+    <form method='GET' action='potenciaext'>
+      <input type='number' name="number_a">
+      <input type='number' name="number_b">
+      <input type='submit' value='potenciaext' class='btn btn-success btn-block'>
+    </form>
   <body></body>
 </html>

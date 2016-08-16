@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^sumar/$', views.sumar, name = 'sumar'),
     url(r'^sumarext/$', views.sumarext, name = 'sumarext'),
     url(r'^restar/$', views.restar, name = 'restar'),
+    url(r'^restarext/$', views.restarext, name = 'restarext'),
     url(r'^potencia/$', views.potencia, name = 'potencia'),
+    url(r'^potenciaext/$', views.potenciaext, name = 'potenciaext'),
     url(r'^admin/', admin.site.urls),
 ]
