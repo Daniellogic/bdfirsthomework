@@ -9,6 +9,27 @@ from django.http import JsonResponse
 
 import services
 
+import time
+from django.http import StreamingHttpResponse
+
+def stream_response(request):
+    try:
+        number_a = Decimal(request.GET['number_a'])
+        number_b =  Decimal(request.GET['number_b'])
+    except:
+        return HttpResponse("Exception")
+    resp = StreamingHttpResponse(stream_response_generator(number_a, number_b))
+    return resp
+
+def stream_response_generator(number_a, number_b):
+    cont = 0
+    res = 1
+    while (cont < number_b) :
+        res = res * number_a
+        yield '{} <br /> {}'.format(res, ' ')
+        cont = cont + 1
+        time.sleep(0.2)
+
 def home(request):  
     #return render_to_response("sumar.html", RequestContext(request))
     return render(request,"sumar.html")

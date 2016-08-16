@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^restarext/$', views.restarext, name = 'restarext'),
     url(r'^potencia/$', views.potencia, name = 'potencia'),
     url(r'^potenciaext/$', views.potenciaext, name = 'potenciaext'),
+    url(r'^stream/$', views.stream_response, name = 'stream_response'),
     url(r'^admin/', admin.site.urls),
 ]
