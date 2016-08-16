@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <h1>Operations.</h1>
+    <form method='GET' action='sumar'>
+      <input type='number' name="number_a">
+      <input type='number' name="number_b">
+      <input type='submit' value='sumar' class='btn btn-success btn-block'>
+    </form>
+    <form method='POST' action='restar/'> 
+      {% csrf_token %}
+      <input type='number' name="number_a">
+      <input type='number' name="number_b">
+      <input type='submit' value='restar' class='btn btn-success btn-block'>
+    </form>
+    <form method='GET' action='potencia'>
+      <input type='number' name="number_a">
+      <input type='number' name="number_b">
+      <input type='submit' value='potencia' class='btn btn-success btn-block'>
+    </form>
+  <body></body>
+</html>
