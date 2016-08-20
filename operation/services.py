@@ -20,4 +20,4 @@ def externalPotencia(number_a, number_b):
     params = {'number_a': number_a,'number_b': number_b}
     r = requests.get(url, params=params)
     #r.write("External")
-    return r
+    return r 
